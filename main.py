@@ -2,6 +2,7 @@ from src.cnnClassifier import logger  # Adjusted the import path to include the 
 from src.cnnClassifier.pipeline.data_ingestion import DataIngestionTrainingPipeline
 from src.cnnClassifier.pipeline.prepare_base_model import PrepareBaseModelTrainingPipeline
 from src.cnnClassifier.pipeline.model_trainer import ModelTrainingPipeline
+from src.cnnClassifier.pipeline.evalution import EvaluationPipeline
 from dotenv import load_dotenv
 
 load_dotenv()  # Load environment variables from .env file
@@ -37,6 +38,20 @@ try:
    from src.cnnClassifier.pipeline.model_trainer import ModelTrainingPipeline
    model_trainer = ModelTrainingPipeline()
    model_trainer.main()
+   logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
+
+except Exception as e:
+        logger.exception(e)
+        raise e
+
+
+
+STAGE_NAME = "Evaluation stage"
+try:
+   logger.info(f"*******************")
+   logger.info(f">>>>>> stage {STAGE_NAME} started <<<<<<")
+   model_evalution = EvaluationPipeline()
+   model_evalution.main()
    logger.info(f">>>>>> stage {STAGE_NAME} completed <<<<<<\n\nx==========x")
 
 except Exception as e:
