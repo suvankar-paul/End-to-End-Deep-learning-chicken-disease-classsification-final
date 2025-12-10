@@ -21,7 +21,7 @@ class DataIngestionTrainingPipeline:
             print(f"access key: {os.getenv('AWS_ACCESS_KEY_ID')}")
             print(f"secret key: {os.getenv('AWS_SECRET_ACCESS_KEY')}")
             config = ConfigurationManager()
-            data_ingestion_config = config.get_data_ingestion_config()
+            data_ingestion_config = config.get_data_ingestion_config() 
             data_ingestion = DataIngestion(config=data_ingestion_config)
 
             bucket_name = "chicken48"
