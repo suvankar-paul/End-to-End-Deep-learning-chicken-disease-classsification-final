@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Vision Pro - Next-Gen Object Classification</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        *{margin:0;padding:0;box-sizing:border-box}body{font-family:'Outfit',sans-serif;overflow-x:hidden;background:#0a0a0a}#landingPage{min-height:100vh;background:#0a0a0a;position:relative;overflow:hidden}#classificationPage{display:none;min-height:100vh;background:#0a0a0a;position:relative}.gradient-bg{position:fixed;width:100%;height:100%;background:radial-gradient(circle at 20% 50%,rgba(120,119,198,0.3) 0%,transparent 50%),radial-gradient(circle at 80% 80%,rgba(255,110,199,0.3) 0%,transparent 50%),radial-gradient(circle at 40% 20%,rgba(88,166,255,0.3) 0%,transparent 50%),radial-gradient(circle at 60% 90%,rgba(139,92,246,0.3) 0%,transparent 50%);animation:meshMove 20s ease infinite;filter:blur(60px)}@keyframes meshMove{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(50px,-50px) scale(1.1)}66%{transform:translate(-50px,50px) scale(0.9)}}.grain-overlay{position:fixed;width:100%;height:100%;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.05'/%3E%3C/svg%3E");pointer-events:none;opacity:.3}.navbar-custom{position:relative;z-index:100;padding:2rem 0;background:rgba(10,10,10,0.3);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.05)}.brand-logo{font-size:1.6rem;font-weight:800;background:linear-gradient(135deg,#fff 0%,#a78bfa 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-1px}.nav-link-custom{color:rgba(255,255,255,0.7)!important;font-weight:500;margin:0 1.5rem;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);position:relative;font-size:0.95rem}.nav-link-custom::after{content:'';position:absolute;bottom:-5px;left:0;width:0;height:2px;background:linear-gradient(90deg,#a78bfa,#ff6ec7);transition:width 0.3s ease}.nav-link-custom:hover{color:white!important}.nav-link-custom:hover::after{width:100%}.hero-container{position:relative;z-index:10;min-height:90vh;display:flex;align-items:center;justify-content:center;text-align:center;padding:4rem 2rem}.hero-badge{display:inline-block;padding:0.5rem 1.5rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:50px;color:rgba(255,255,255,0.9);font-size:0.85rem;font-weight:600;margin-bottom:2rem;backdrop-filter:blur(10px);animation:fadeInDown 0.8s ease}.hero-title{font-size:6rem;font-weight:900;line-height:1.1;margin-bottom:2rem;background:linear-gradient(135deg,#ffffff 0%,#a78bfa 50%,#ff6ec7 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;letter-spacing:-3px;animation:fadeInUp 1s ease}.hero-description{font-size:1.3rem;color:rgba(255,255,255,0.6);max-width:700px;margin:0 auto 3rem;line-height:1.8;font-weight:400;animation:fadeInUp 1.2s ease}.cta-buttons{display:flex;gap:1.5rem;justify-content:center;flex-wrap:wrap;animation:fadeInUp 1.4s ease}.btn-primary-custom{padding:1.2rem 3rem;background:linear-gradient(135deg,#a78bfa 0%,#8b5cf6 100%);border:none;border-radius:50px;color:white;font-weight:700;font-size:1.05rem;cursor:pointer;transition:all 0.3s cubic-bezier(0.4,0,0.2,1);box-shadow:0 20px 60px rgba(167,139,250,0.3);position:relative;overflow:hidden}.btn-primary-custom::before{content:'';position:absolute;top:0;left:-100%;width:100%;height:100%;background:linear-gradient(90deg,transparent,rgba(255,255,255,0.3),transparent);transition:left 0.5s}.btn-primary-custom:hover::before{left:100%}.btn-primary-custom:hover{transform:translateY(-3px);box-shadow:0 25px 70px rgba(167,139,250,0.5)}.features-grid{position:relative;z-index:10;padding:6rem 2rem;max-width:1400px;margin:0 auto}.feature-card-modern{background:rgba(255,255,255,0.03);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.08);border-radius:24px;padding:3rem;transition:all 0.4s cubic-bezier(0.4,0,0.2,1);position:relative;overflow:hidden;height:100%}.feature-card-modern::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(167,139,250,0.1) 0%,rgba(255,110,199,0.1) 100%);opacity:0;transition:opacity 0.4s ease}.feature-card-modern:hover{transform:translateY(-10px);border-color:rgba(167,139,250,0.3);box-shadow:0 30px 80px rgba(167,139,250,0.2)}.feature-card-modern:hover::before{opacity:1}.feature-icon-modern{font-size:3rem;margin-bottom:1.5rem;display:inline-block;position:relative;z-index:1;filter:drop-shadow(0 0 20px rgba(167,139,250,0.5))}.feature-title-modern{font-size:1.5rem;font-weight:700;color:white;margin-bottom:1rem;position:relative;z-index:1}.feature-desc-modern{color:rgba(255,255,255,0.6);line-height:1.7;font-size:1rem;position:relative;z-index:1}.navbar-app{position:relative;z-index:100;padding:1.5rem 0;background:rgba(10,10,10,0.8);backdrop-filter:blur(20px);border-bottom:1px solid rgba(255,255,255,0.05)}.btn-back-custom{padding:0.7rem 1.8rem;background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:50px;color:white;font-weight:600;font-size:0.95rem;cursor:pointer;transition:all 0.3s ease;backdrop-filter:blur(10px)}.btn-back-custom:hover{background:rgba(255,255,255,0.1);transform:translateX(-5px)}.app-container{position:relative;z-index:10;max-width:1600px;margin:0 auto;padding:4rem 2rem}.glass-card{background:rgba(255,255,255,0.03);backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,0.08);border-radius:32px;padding:3rem;box-shadow:0 30px 90px rgba(0,0,0,0.5);transition:all 0.4s ease;height:100%;animation:slideInUp 0.6s ease}.glass-card:hover{transform:translateY(-8px);box-shadow:0 40px 100px rgba(167,139,250,0.2);border-color:rgba(167,139,250,0.2)}.section-title{font-size:2rem;font-weight:700;color:white;margin-bottom:2rem;display:flex;align-items:center;gap:0.8rem}.upload-area{border:2px dashed rgba(167,139,250,0.3);border-radius:24px;padding:5rem 2rem;text-align:center;cursor:pointer;transition:all 0.4s cubic-bezier(0.4,0,0.2,1);background:linear-gradient(135deg,rgba(167,139,250,0.03) 0%,rgba(255,110,199,0.03) 100%);position:relative;overflow:hidden}.upload-area::before{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(135deg,rgba(167,139,250,0.1) 0%,rgba(255,110,199,0.1) 100%);opacity:0;transition:opacity 0.3s ease}.upload-area:hover::before{opacity:1}.upload-area:hover{border-color:rgba(167,139,250,0.6);transform:scale(1.02);box-shadow:0 20px 60px rgba(167,139,250,0.2)}.upload-icon-big{font-size:6rem;margin-bottom:1.5rem;animation:floatUpDown 3s ease-in-out infinite;filter:drop-shadow(0 0 30px rgba(167,139,250,0.6))}@keyframes floatUpDown{0%,100%{transform:translateY(0)}50%{transform:translateY(-20px)}}.upload-text-main{font-size:1.4rem;color:white;font-weight:700;margin-bottom:0.8rem}.upload-text-sub{font-size:1rem;color:rgba(255,255,255,0.5)}.preview-image{width:100%;height:auto;border-radius:24px;margin-top:2rem;max-height:500px;object-fit:contain;box-shadow:0 20px 60px rgba(167,139,250,0.3);animation:zoomIn 0.5s ease}@keyframes zoomIn{from{opacity:0;transform:scale(0.9)}to{opacity:1;transform:scale(1)}}.btn-analyze{padding:1.3rem 4rem;background:linear-gradient(135deg,#a78bfa 0%,#8b5cf6 100%);border:none;border-radius:50px;color:white;font-weight:700;font-size:1.1rem;cursor:pointer;transition:all 0.3s ease;box-shadow:0 15px 50px rgba(167,139,250,0.4);margin-top:2rem;position:relative;overflow:hidden}.btn-analyze::before{content:'';position:absolute;top:50%;left:50%;width:0;height:0;border-radius:50%;background:rgba(255,255,255,0.3);transform:translate(-50%,-50%);transition:width 0.6s,height 0.6s}.btn-analyze:hover::before{width:300px;height:300px}.btn-analyze:hover:not(:disabled){transform:translateY(-4px);box-shadow:0 20px 70px rgba(167,139,250,0.6)}.btn-analyze:disabled{opacity:0.4;cursor:not-allowed}.results-container{background:rgba(255,255,255,0.02);border:1px solid rgba(255,255,255,0.05);border-radius:24px;padding:2.5rem;min-height:300px;overflow-y:auto;max-height:600px}.results-container pre{color:rgba(255,255,255,0.8);margin:0;white-space:pre-wrap;word-wrap:break-word;font-size:1rem;line-height:1.6}.result-img{max-height:350px;border-radius:24px;box-shadow:0 20px 60px rgba(167,139,250,0.3);margin-bottom:2rem}.status-text{text-align:center;padding:3rem;color:rgba(255,255,255,0.4);font-size:1.2rem}#loading{position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);backdrop-filter:blur(10px);display:none;justify-content:center;align-items:center;z-index:99999}.spinner{width:100px;height:100px;border:4px solid rgba(167,139,250,0.2);border-top:4px solid #a78bfa;border-radius:50%;animation:rotate 1s linear infinite}@keyframes rotate{to{transform:rotate(360deg)}}@keyframes fadeInDown{from{opacity:0;transform:translateY(-30px)}to{opacity:1;transform:translateY(0)}}@keyframes fadeInUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:translateY(0)}}@keyframes slideInUp{from{opacity:0;transform:translateY(50px)}to{opacity:1;transform:translateY(0)}}::-webkit-scrollbar{width:8px}::-webkit-scrollbar-track{background:rgba(255,255,255,0.05)}::-webkit-scrollbar-thumb{background:rgba(167,139,250,0.5);border-radius:10px}::-webkit-scrollbar-thumb:hover{background:rgba(167,139,250,0.7)}@media (max-width:768px){.hero-title{font-size:3rem;letter-spacing:-1px}.hero-description{font-size:1.1rem}.cta-buttons{flex-direction:column}.glass-card{padding:2rem;margin-bottom:2rem}.section-title{font-size:1.5rem}}
+    </style>
+</head>
+<body>
+
+<div id="landingPage">
+    <div class="gradient-bg"></div>
+    <div class="grain-overlay"></div>
+    <nav class="navbar-custom">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <div class="brand-logo">AI Vision Pro</div>
+                <div class="d-none d-md-flex gap-0">
+                    <a href="#" class="nav-link-custom">Features</a>
+                    <a href="#" class="nav-link-custom">Technology</a>
+                    <a href="#" class="nav-link-custom">Pricing</a>
+                    <a href="#" class="nav-link-custom">Contact</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+    <div class="hero-container">
+        <div class="container">
+            <div class="hero-badge">✨ Powered by Advanced Neural Networks</div>
+            <h1 class="hero-title">The Future of<br>Object Recognition</h1>
+            <p class="hero-description">Experience unparalleled accuracy in object classification. Our cutting-edge AI technology processes images in real-time, delivering instant insights with enterprise-grade precision.</p>
+            <div class="cta-buttons">
+                <button class="btn-primary-custom" id="startBtn">Start Classifying</button>
+            </div>
+        </div>
+    </div>
+    <div class="features-grid">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <div class="feature-card-modern">
+                        <div class="feature-icon-modern">⚡</div>
+                        <h3 class="feature-title-modern">Real-Time Processing</h3>
+                        <p class="feature-desc-modern">Lightning-fast inference powered by optimized neural networks. Get results in milliseconds, not seconds.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card-modern">
+                        <div class="feature-icon-modern">🎯</div>
+                        <h3 class="feature-title-modern">Precision Accuracy</h3>
+                        <p class="feature-desc-modern">State-of-the-art deep learning models trained on millions of images for unmatched classification accuracy.</p>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="feature-card-modern">
+                        <div class="feature-icon-modern">🔐</div>
+                        <h3 class="feature-title-modern">Enterprise Security</h3>
+                        <p class="feature-desc-modern">Bank-level encryption and privacy protection. Your data never leaves your device without permission.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="classificationPage">
+    <div class="gradient-bg"></div>
+    <div class="grain-overlay"></div>
+    <nav class="navbar-app">
+        <div class="container">
+            <div class="d-flex justify-content-between align-items-center w-100">
+                <div class="brand-logo">AI Vision Pro</div>
+                <button class="btn-back-custom" id="backBtn">← Back to Home</button>
+            </div>
+        </div>
+    </nav>
+    <div class="app-container">
+        <div class="row g-4">
+            <div class="col-lg-6">
+                <div class="glass-card">
+                    <h5 class="section-title">📸 Upload Image</h5>
+                    <div class="upload-area" id="uploadArea">
+                        <input type="file" id="fileInput" accept="image/*" style="display:none">
+                        <div class="upload-icon-big">📤</div>
+                        <p class="upload-text-main">Drop your image here</p>
+                        <p class="upload-text-sub">or click to browse • Supports JPG, PNG, GIF</p>
+                    </div>
+                    <img id="preview" class="preview-image" style="display:none">
+                    <div class="text-center">
+                        <button class="btn-analyze" id="analyzeBtn" disabled>
+                            <span style="position:relative;z-index:1">🔍 Analyze Image</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="glass-card">
+                    <h5 class="section-title">📊 Analysis Results</h5>
+                    <div id="resultImage"></div>
+                    <div class="results-container" id="resultText">
+                        <div class="status-text">Upload an image to see AI classification results</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="loading"><div class="spinner"></div></div>
+
+<script>
+let b64="";
+document.getElementById('startBtn').onclick=()=>{document.getElementById('landingPage').style.display='none';document.getElementById('classificationPage').style.display='block'};
+document.getElementById('backBtn').onclick=()=>{document.getElementById('classificationPage').style.display='none';document.getElementById('landingPage').style.display='block';document.getElementById('preview').style.display='none';document.getElementById('fileInput').value='';document.getElementById('analyzeBtn').disabled=true;document.getElementById('resultImage').innerHTML='';document.getElementById('resultText').innerHTML='<div class="status-text">Upload an image to see AI classification results</div>';b64=""};
+document.getElementById('uploadArea').onclick=()=>document.getElementById('fileInput').click();
+document.getElementById('fileInput').onchange=function(){const f=this.files[0];if(f){const r=new FileReader();r.onload=e=>{document.getElementById('preview').src=e.target.result;document.getElementById('preview').style.display='block';b64=e.target.result.replace(/^data:image\/(png|jpeg|jpg|gif);base64,/,'');document.getElementById('analyzeBtn').disabled=false};r.readAsDataURL(f)}};
+const ua=document.getElementById('uploadArea');
+['dragenter','dragover','dragleave','drop'].forEach(e=>ua.addEventListener(e,ev=>{ev.preventDefault();ev.stopPropagation()}));
+['dragenter','dragover'].forEach(e=>ua.addEventListener(e,()=>{ua.style.borderColor='rgba(167,139,250,0.8)';ua.style.transform='scale(1.02)'}));
+['dragleave','drop'].forEach(e=>ua.addEventListener(e,()=>{ua.style.borderColor='rgba(167,139,250,0.3)';ua.style.transform='scale(1)'}));
+ua.addEventListener('drop',e=>{const f=e.dataTransfer.files;if(f.length){document.getElementById('fileInput').files=f;document.getElementById('fileInput').dispatchEvent(new Event('change'))}});
+document.getElementById('analyzeBtn').onclick=()=>{if(!b64){alert("Please upload an image first");return}document.getElementById('loading').style.display='flex';document.getElementById('resultText').innerHTML='<div class="status-text">🔄 Processing your image...</div>';fetch('/predict',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({image:b64})}).then(r=>r.json()).then(d=>{document.getElementById('loading').style.display='none';if(d[1]?.image)document.getElementById('resultImage').innerHTML=`<img src="data:image/jpeg;base64,${d[1].image}" class="img-fluid result-img">`;document.getElementById('resultText').innerHTML=`<pre>${JSON.stringify(d[0],null,2)}</pre>`}).catch(e=>{document.getElementById('loading').style.display='none';document.getElementById('resultText').innerHTML='<div class="status-text">❌ Error processing image. Please try again.</div>';console.error(e)})};
+</script>
+</body>
+</html>
