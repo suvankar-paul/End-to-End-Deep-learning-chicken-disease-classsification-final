@@ -27,7 +27,7 @@ docker pull suvankar456/chicken62:v1
 ```
 
 ```
-docker run -p 5000:5000 suvankar456/chicken62:v1
+docker run -p 8080:5000 suvankar456/chicken62:v1
 
 ```
 
