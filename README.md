@@ -20,7 +20,7 @@
 8. Update the main.py
 9. Update the app.py
 
-# Run this project through docker
+# Run this project directly through docker(no setup needed)
 
 ```
 docker pull suvankar456/chicken62:v1
