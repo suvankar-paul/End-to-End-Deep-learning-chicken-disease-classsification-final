@@ -4,6 +4,12 @@ FROM python:3.8-slim-buster
 WORKDIR /app
 
 COPY . /app
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
-CMD ["python3", "app.py"]
+
+EXPOSE 8080
+
+
+ENV FLASK_APP=app.py
+
+CMD ["flask", "run", "--host=0.0.0.0"]
