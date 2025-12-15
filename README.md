@@ -24,11 +24,11 @@
 # Run this project directly through docker(no setup needed)
 
 ```
-docker pull suvankar456/chicken200:v1
+docker pull suvankar456/chicken500:v1
 ```
 
 ```
-docker run -p 5000:5000 suvankar456/chicken200:v1
+docker run -p 5000:5000 suvankar456/chicken500:v1
 
 ```
 
